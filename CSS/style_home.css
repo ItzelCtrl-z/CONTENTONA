@@ -1,0 +1,415 @@
+
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    --amarillo: #FFF4E7;
+    --naranja: rgba(251, 204, 161, 0.551);;
+    --café: #662A1A;
+    --azul: #4A799E;
+    --magenta: #A93E53;
+    --negro: #121A23;
+
+    margin: 0;
+    padding: 0;
+    background: var(--amarillo);
+    overflow-x: hidden; /* Elimina el scroll horizontal */
+    overflow-y: auto;   /* Permite el scroll vertical */
+}
+
+p{
+    display: block;
+    position: static;
+    font-family: 'AR One Sans';
+    margin-left: 1.8em;
+    margin-bottom: 3.5em;
+    margin-right: 1.5em;
+    text-align: center;
+    color: var(--café);
+    font-size: 0.875rem;
+   }
+
+h1{
+    position: relative;
+    font-size: 1.375rem;
+    font-family: Mestiza-Black;
+    text-align: center;
+    width: 100%; /* Cambia 100vw por 100% para evitar desbordamientos */
+    max-width: 90%; /* Asegura que no ocupe más del 90% del contenedor */
+    margin: 0 auto; /* Centra el texto */
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    padding: 0; /* Evita que padding extra lo mueva fuera */
+    color: var(--magenta);
+}
+
+h2 {
+    position: relative;
+    font-size: 1.3em;
+    font-family: Mestiza-Black;
+    text-align: center;
+    width: 100%; /* Cambia 100vw por 100% para evitar desbordamientos */
+    max-width: 90%; /* Asegura que no ocupe más del 90% del contenedor */
+    margin: 0 auto; /* Centra el texto */
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    padding: 0; /* Evita que padding extra lo mueva fuera */
+    color: var(--magenta);
+}
+
+span.tradi {
+    color: var(--café);
+}
+
+span.cont {
+    font-family: Mestiza-Black;
+    color: var(--magenta);
+}
+
+.navegacion {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2,1fr);
+        background: var(--naranja);
+        padding-top: 1em;
+        padding-bottom: 1.1em;
+        width: 100%; /* Abarca todo el ancho */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+    }
+
+.menu {
+    grid-area: 1 / 3 / 2 / 4; /* Asegura que abarque una sola celda */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+.carrito {
+    display: flex;
+    justify-content: center;
+    grid-area: 1 / 1 / 1 / 1;
+}
+
+.icono-carrito {
+    height: 97%;
+}
+
+.logo {
+    display: flex;
+    grid-area: 2 / 2 / 2 / 2;
+    align-content: center; /* Centra el contenido dentro de cada columna */
+    justify-content: center;
+    
+}
+
+div.imagen {
+    height:80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra verticalmente el contenido */
+    overflow: hidden; /* Oculta el desbordamiento si existe */
+    position: relative;
+}
+
+div.imagen img {
+    width: 100%; /* La imagen ocupa el ancho completo */
+    height: 100%; /* La imagen ocupa el alto completo */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área sin deformarla */
+    position: absolute; /* Asegura que la imagen se posicione correctamente */
+   
+}
+
+div.foto {
+    height: 50vh; /* El alto será el 50% de la altura de la ventana */
+    width: 100%;  /* El ancho ocupará todo el contenedor */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    position: relative;
+    max-width: 100%; /* Evita que la imagen se desborde */
+    overflow: hidden; /* Asegura que cualquier parte de la imagen que sobrepase el contenedor se oculte */
+}
+
+div.foto img {
+    width: 60%;  /* La imagen ocupará todo el ancho disponible */
+    height: auto;  /* Mantiene la relación de aspecto original */
+    object-fit: cover; /* La imagen cubre todo el espacio del contenedor sin deformarse */
+    border-radius: 8px;
+}
+
+footer.contacto {
+    display: flex;
+    flex-direction: column;
+    background: var(--naranja);
+    padding: 0;
+    margin: 0;
+}
+
+.logo_f {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+    margin-bottom:0.5em;
+}
+
+.form {
+    margin: 1.5em;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.btn.btn-primary {
+    margin: 1.5em;
+    margin-bottom: 0;
+    margin-top: 0;
+    background-color: var(--magenta);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1) inset;
+    border: none;
+    cursor: pointer;
+    font-family: 'AR One Sans';
+}
+
+h4 {
+    font-size: 1em;
+    margin-top: 1.2em;
+    margin-bottom: 1em;
+    position: relative;
+    font-family: 'AR One Sans';
+    color: var(--negro);
+    text-align: center;
+    font-weight: bold;
+    }
+
+    ul {
+    list-style: none;
+    text-align: center;
+    position: relative;
+    font-size: 0.65em;
+    line-height: 1.625rem;
+    font-family: 'AR One Sans';
+    padding: 0;
+    margin:0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--negro);
+    font-weight:300;
+}
+
+a:hover {
+    color: var(--magenta); /* Color al hacer hover */
+}
+
+.iconos {
+    display: flex;
+    justify-content: space-between;
+    margin: 3em;
+    margin-bottom: 1em;
+    margin-top: 0.2em;
+
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+/* Desktop */
+
+@media only screen and (min-width: 1200px){
+    .navegacion {
+        grid-template-rows: 1fr; /* Solo una fila */
+        grid-template-columns:  1fr 2fr 50px; /* Ajusta el diseño a tres columnas */
+        background: var(--naranja);
+        padding-top: 1em;
+        padding-bottom: 1.1em;
+        width: 100%; /* Abarca todo el ancho */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+        padding-bottom: 0.6em;
+    }
+
+    .menu-desktop {
+        display: flex; /* Muestra los elementos como una fila */
+        align-items: center;
+        justify-content:flex-end;
+        gap: 2em; /* Espaciado entre los enlaces */
+        grid-column: 2 / 3; /* Coloca el menú en el centro */
+    }
+
+    .menu-desktop ul {
+        list-style: none; /* Elimina los puntos de lista */
+        display: flex;
+        gap: 5em; /* Espaciado entre los elementos */
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu-desktop li a {
+        text-decoration: none;
+        font-family: 'AR One Sans', sans-serif;
+        color: var(--café);
+        font-size: 1.4em;
+        font-weight: bold;
+        transition: color 0.3s ease; /* Animación de transición */
+        cursor: pointer;
+    }
+
+    .menu-desktop li a:hover {
+        color: var(--magenta); /* Color al hacer hover */
+    }
+
+    .logo {
+        display: flex;
+        grid-area: 1 / 1 / 1 / 1;
+        align-content: center; /* Centra el contenido dentro de cada columna */
+        justify-content: center;
+
+    }
+
+    .carrito {
+        display: flex;
+        grid-column: 4; /* Coloca el carrito en la primera columna */
+        grid-row: 1;
+        justify-content: flex-end;
+        margin-right: 1.8em;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    div.imagen {
+        height: calc(100vh - 75px); /* 100vh (altura completa de la ventana)  */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Centra verticalmente el contenido */
+        overflow: hidden; /* Oculta el desbordamiento si existe */
+        position: relative;
+    }
+
+    h1 {
+        margin-top: 1.1em;
+    }   
+
+    .logo_f {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5em;
+        margin-bottom:0.5em;
+    }
+    
+    .form {
+        margin: 1.5em;
+        margin-bottom: 0;
+        margin-top: 0;
+        width: 50vw;
+    }
+    
+    .btn.btn-primary {
+        margin: 1.5em;
+        margin-bottom: 0;
+        margin-top: 0;
+        background-color: var(--magenta);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1) inset;
+        border: none;
+        cursor: pointer;
+        font-family: 'AR One Sans';
+        width: 50vw;
+    }
+
+    .info-marca {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+
+    .info-marca p {
+        display: flex;
+        justify-content: center;
+        max-width: 70%;
+    }
+
+    .info-tradi {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .info-tradi p {
+        display: flex;
+        justify-content: center;
+        max-width: 70%;
+    }
+
+    footer.contacto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .iconos {
+        display: flex;
+        justify-content: flex-end;
+        gap: 7em ;
+    }
+
+    .info-marca {
+        display: flex;
+        flex-direction: column; /* o row según el diseño */
+        align-items: center; /* Centra horizontalmente */
+        text-align: center; /* Centra el texto */
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
+/* Tablet */
+
+@media only screen and (max-width: 1200px) and (min-width: 540px){
+    .navegacion {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .menu {
+        grid-area: 1 / 3 / 2 / 4; /* Asegura que abarque una sola celda */
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+    }
+
+    .logo {
+        display: flex;
+        padding-top: 1em;
+        align-content: center; /* Centra el contenido dentro de cada columna */
+        justify-content: center;
+    }
+
+    .icono-menu {
+        width: 112%;
+    }
+
+    div.imagen {
+        height: 85vh;
+    }
+
+    h1 {
+        transform: scale(1.1);
+        align-items: center;
+    }
+
+    
+}
+
+/* dispositivos móviles */
+
+@media only screen and (max-width: 1200px)  {
+        .menu-desktop {
+            display: none; /* Oculta el menú en tablets y móviles */
+        }
+}
