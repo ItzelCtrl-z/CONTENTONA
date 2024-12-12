@@ -79,7 +79,7 @@ div.texto p {
     position: relative;
     font-size: 13px;
     color: var(--negro);
-    font-family: Karma;
+    font-family: 'AR One Sans';
     width: 240px;
     left: calc(50% - 120px);
 }
