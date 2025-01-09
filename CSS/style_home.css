@@ -127,6 +127,7 @@ span.marca {
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
 }
+
 .carrito {
     display: flex;
     justify-content: center;
@@ -134,7 +135,7 @@ span.marca {
 }
 
 .icono-carrito {
-    height: 97%;
+    width: 105%;
 }
 
 .logo {
@@ -508,7 +509,7 @@ a:hover {
     }
 
     .icono-menu {
-        width: 112%;
+        width: 105%;
     }
 
     div.imagen {
@@ -546,5 +547,17 @@ a:hover {
     animation-timing-function: cubic-bezier(.54,.21,.37,.78);
 }
 
+.navegacion {
+    padding-top: 0.8em;
+    padding-bottom: 0.5em;
+}
+
+.logo img {
+    width: 140%; /* Ajusta el porcentaje según el tamaño deseado */
+}
+
+.icono-carrito {
+    height: 100%;
+}
 
     }

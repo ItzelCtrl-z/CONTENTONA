@@ -1,0 +1,153 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    --amarillo: #FFF4E7;
+    --naranja: rgba(251, 204, 161, 0.551);;
+    --café: #662A1A;
+    --azul: #4A799E;
+    --magenta: #9c243c;
+    --negro: #121A23;
+
+    margin: 0;
+    padding: 0;
+    background: var(--amarillo);
+    overflow-x: hidden; /* Elimina el scroll horizontal */
+    overflow-y: hidden;   /* Permite el scroll vertical */
+    min-height: 100vh; /* Altura mínima de la pantalla */
+    display: flex; /* Distribución vertical */
+    flex-direction: column; /* Asegura que los hijos se acomoden en columna */
+}
+
+/* Acomoda y da formato a la barra de navegación */
+
+.navegacion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    background: var(--naranja);
+    padding-top: 1em;
+    padding-bottom: 1.1em;
+    width: 100%; /* Abarca todo el ancho */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+.cerrar {
+    grid-area: 1 / 3 / 2 / 4; /* Asegura que abarque una sola celda */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.carrito {
+    display: flex;
+    justify-content: center;
+    grid-area: 1 / 1 / 1 / 1;
+}
+
+.icono-carrito {
+    width: 105%;
+}
+
+.return {
+    width: 120%;
+} 
+
+.logo {
+    display: flex;
+    grid-area: 2 / 2 / 2 / 2;
+    align-content: center; /* Centra el contenido dentro de cada columna */
+    justify-content: center;
+}
+
+/* Estructura de los botones */
+
+.d-grid {
+    flex: 1; /* Toma el espacio restante disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    gap: 1rem; /* Espaciado entre botones */
+}
+
+.btn.btn-primary {
+    background-color: var(--café);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1) inset;
+    border: none;
+    cursor: pointer;
+    font-family: 'AR One Sans';
+    font-weight: bold;
+    width: 90vw;
+    height: 8vh;
+    font-size: 1.2rem; /* Ajustable: cambiará según el tamaño base */
+    justify-content: center;
+}
+
+
+.iconos {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    margin-top: auto; /* Empuja el footer hacia la parte inferior */
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+/* Tablet */
+
+@media only screen and (max-width: 1200px) and (min-width: 540px){
+    .navegacion {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .menu {
+        grid-area: 1 / 3 / 2 / 4; /* Asegura que abarque una sola celda */
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+    }
+
+    .logo {
+        display: flex;
+        padding-top: 1em;
+        align-content: center; /* Centra el contenido dentro de cada columna */
+        justify-content: center;
+    }
+
+    .icono-menu {
+        width: 105%;
+    }
+
+}
+
+/* dispositivos móviles */
+
+@media only screen and (max-width: 1200px) and (min-width: 320px) {
+        .menu-desktop {
+            display: none; /* Oculta el menú en tablets y móviles */
+        }
+        
+   /* Centra el simbolo del corazon */
+
+.navegacion {
+    padding-top: 0.8em;
+    padding-bottom: 0.5em;
+}
+
+.logo img {
+    width: 140%; /* Ajusta el porcentaje según el tamaño deseado */
+}
+
+.icono-carrito {
+    height: 80%;
+}
+
+.return {
+    width: 105%;
+}
+
+    }
