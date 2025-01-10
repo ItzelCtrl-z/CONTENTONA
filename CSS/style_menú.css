@@ -62,6 +62,16 @@ html, body {
     justify-content: center;
 }
 
+.logo img {
+    width: 140%; /* Ajusta según lo necesario */
+    max-width: 100%; /* Previene que la imagen crezca fuera de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.logo a {
+    display: inline-block; /* Asegura que el enlace se ajuste al tamaño de su contenido */
+}
+
 /* Estructura de los botones */
 
 .d-grid {
@@ -92,6 +102,11 @@ html, body {
     justify-content: space-around;
     padding: 1rem;
     margin-top: auto; /* Empuja el footer hacia la parte inferior */
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--magenta); /* Color de fondo magenta al pasar el mouse */
+    border-color: var(--magenta); /* Bordes también en magenta si son visibles */
 }
 
 /* RESPONSIVE MEDIA QUERIES */
