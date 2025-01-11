@@ -30,18 +30,6 @@ p{
     color: var(--café);
     font-size: clamp(0.875rem, 2vw, 1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
    }
-
-/* Agrega espaciado a los párrafos con clase 'second' y 'last' */
-
-p.second {
-    margin-top: 1.5em;
-    margin-bottom: 3em; /* Espaciado inferior */
-}
-
-p.last {
-    margin-top: 1.5em;
-    margin-bottom: 3em; /* Espaciado inferior */
-}
  
  /* Centra el simbolo del corazon */
 
@@ -49,6 +37,7 @@ p.last {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1em;
 }
 
 .contenedor-centro img {
@@ -66,46 +55,39 @@ p.last {
 
 h1{
     position: relative;
-    font-size: clamp(1.175rem, 2vw, 19rem);
+    font-size: clamp(2rem, 2vw, 19rem);
+    text-align: center;
     font-family: Mestiza-Black;
-    text-align: center;
     width: 100%; /* Cambia 100vw por 100% para evitar desbordamientos */
     max-width: 90%; /* Asegura que no ocupe más del 90% del contenedor */
     margin: 0 auto; /* Centra el texto */
-    margin-top: 1.5em;
-    margin-bottom: 1em;
+    margin-top:0.9em;
+    margin-bottom: 0.8em;
     padding: 0; /* Evita que padding extra lo mueva fuera */
-    color: var(--magenta);
-}
-
-h2 {
-    position: relative;
-    font-size: clamp(1.175rem, 2vw, 2rem);
-    font-family:Mestiza-Bold;
-    font-weight: bold;
-    text-align: center;
-    width: 100%; /* Cambia 100vw por 100% para evitar desbordamientos */
-    max-width: 90%; /* Asegura que no ocupe más del 90% del contenedor */
-    margin: 0 auto; /* Centra el texto */
-    margin-top: 2em;
-    margin-bottom: 1em;
-    padding: 0; /* Evita que padding extra lo mueva fuera */
-    color: var(--magenta);
-}
-
-/* Da estilo a las palabras a resaltar */
-
-span.tradi {
     color: var(--café);
 }
 
-span.cont {
-    font-family: Mestiza-Black;
+
+h2 {
+    position: relative;
+    font-size: clamp(1.4rem, 2vw, 19rem);
+    font-family: Mestiza-BoldItalic;
+    text-align: center;
+    width: 100%; /* Cambia 100vw por 100% para evitar desbordamientos */
+    max-width: 90%; /* Asegura que no ocupe más del 90% del contenedor */
+    margin: 0 auto; /* Centra el texto */
+    padding: 0; /* Evita que padding extra lo mueva fuera */
     color: var(--magenta);
 }
 
-span.marca {
-    font-weight: bold;
+.info-agave {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.7em; /* Reduce el margen superior */
+    margin-bottom: 0.8em; /* Reduce el margen inferior */
 }
 
 /* Acomoda y da formato a la barra de navegación */
@@ -145,7 +127,32 @@ span.marca {
     justify-content: center;
 }
 
-/* Acomoda la hero image */
+/* Da formato a los botones call to action */
+
+.botones_prod {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 1.2rem; /* Ajusta el espacio entre ellos */
+    margin-top: 2.4em;
+    margin-bottom: 2em;
+}
+
+.btn-cta {
+    width: 40vw;
+    position: relative;
+    border-radius: 12px;
+    background-color: var(--azul);
+    height: 3rem;
+    cursor: pointer;
+    border: none;
+    color: #FFF4E7;
+    box-shadow: 0px 4px 4px rgba(26, 70, 102, 0.25);
+    padding: 0%;
+    font-family: 'AR One Sans';
+    font-weight: bold;
+}
+
+/* Acomoda las imagenes */
 
 div.imagen {
     height:80vh;
@@ -165,47 +172,6 @@ div.imagen img {
    
 }
 
-/* Acomoda el close up */
-
-
-div.cont_botellas{
-    height: auto; /* Mantén el alto consistente */
-    width: 100%;  /* Asegura que ocupe el ancho completo */
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    position: relative;
-    max-width: 100%; /* Previene desbordamientos */
-    overflow: hidden; /* Oculta cualquier exceso */
-}
-
-/* Ajusta el estilo específico de la imagen close-up */
-img.close-up {
-    width: 60%;  /* Igual que la imagen manos */
-    height: auto; /* Mantén la relación de aspecto */
-    object-fit: cover; /* Asegura que se recorte correctamente */
-    border-radius: 8px; /* Opcional, para mantener consistencia */
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
-
-/* Acomoda y da estilo al paisaje */
-
-div.foto {
-    height: 50vh; /* El alto será el 50% de la altura de la ventana */
-    width: 100%;  /* El ancho ocupará todo el contenedor */
-    display: flex;
-    justify-content: center; /* Centra la imagen horizontalmente */
-    position: relative;
-    max-width: 100%; /* Evita que la imagen se desborde */
-    overflow: hidden; /* Asegura que cualquier parte de la imagen que sobrepase el contenedor se oculte */
-}
-
-div.foto img {
-    width: 60%;  /* La imagen ocupará todo el ancho disponible */
-    height: auto;  /* Mantiene la relación de aspecto original */
-    object-fit: cover; /* La imagen cubre todo el espacio del contenedor sin deformarse */
-    border-radius: 8px;
-}
 
 /* Estructura el footer */
 
@@ -269,8 +235,10 @@ a {
     font-weight:300;
 }
 
-a:hover {
-    color: var(--magenta); /* Color al hacer hover */
+.btn:hover {
+    background-color: var(--azul); /* Color de fondo magenta al pasar el mouse */
+    border-color: var(--azul); /* Bordes también en magenta si son visibles */
+    color: #FFF4E7;
 }
 
 .iconos {
