@@ -112,7 +112,7 @@ span.marca {
 
 .navegacion {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2em, 1fr, 2em;
     grid-template-rows: repeat(2,1fr);
     background: var(--naranja);
     padding-top: 1em;
@@ -143,6 +143,16 @@ span.marca {
     grid-area: 2 / 2 / 2 / 2;
     align-content: center; /* Centra el contenido dentro de cada columna */
     justify-content: center;
+}
+
+.logo img {
+    width: 160%; /* Ajusta según lo necesario */
+    max-width: 100%; /* Previene que la imagen crezca fuera de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.logo a {
+    display: inline-block; /* Asegura que el enlace se ajuste al tamaño de su contenido */
 }
 
 /* Acomoda la hero image */
