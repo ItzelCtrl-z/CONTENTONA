@@ -30,6 +30,14 @@ p{
     font-size: clamp(0.875rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
    }
  
+/* Da estilo a las palabras a resaltar */
+
+span.cuenta-carrito {
+    font-family: Mestiza;
+    color: white;
+    font-size: 0.9em;
+}
+
  /* Centra el simbolo del corazon */
 
 .contenedor-centro {
@@ -113,6 +121,22 @@ h2 {
     display: flex;
     justify-content: center;
     grid-area: 1 / 1 / 1 / 1;
+    position: relative;
+}
+
+.cuenta-carrito {
+    background-color: var(--magenta);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23px;
+    line-height: 23px;
+    aspect-ratio: 1;
+    text-align: center;
+    position: absolute;
+    bottom: 8%;
+    z-index: 1;
 }
 
 .icono-carrito {

@@ -22,6 +22,14 @@ html, body {
     flex-direction: column; /* Asegura que los hijos se acomoden en columna */
 }
 
+/* Da estilo a las palabras a resaltar */
+
+span.cuenta-carrito {
+    font-family: Mestiza;
+    color: white;
+    font-size: 0.9em;
+}
+
 /* Acomoda y da formato a la barra de navegación */
 
 .navegacion {
@@ -45,7 +53,22 @@ html, body {
 .carrito {
     display: flex;
     justify-content: center;
-    grid-area: 1 / 1 / 1 / 1;
+    grid-area: 1 / 1 / 1 / 1; position: relative;
+}
+
+.cuenta-carrito {
+    background-color: var(--magenta);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23px;
+    line-height: 23px;
+    aspect-ratio: 1;
+    text-align: center;
+    position: absolute;
+    bottom: 8%;
+    z-index: 1;
 }
 
 .icono-carrito {
@@ -120,12 +143,6 @@ html, body {
         justify-content: space-around;
     }
 
-    .menu {
-        grid-area: 1 / 3 / 2 / 4; /* Asegura que abarque una sola celda */
-        display: flex;
-        justify-content: center; /* Centra horizontalmente */
-        align-items: center; /* Centra verticalmente */
-    }
 
     .logo {
         display: flex;
@@ -134,8 +151,12 @@ html, body {
         justify-content: center;
     }
 
-    .icono-menu {
-        width: 105%;
+    .cerrar {
+        width: 42px;
+    }
+
+    img.return {
+        width: 120%;
     }
 
 }

@@ -18,6 +18,14 @@ html, body {
     overflow-y: auto;   /* Permite el scroll vertical */
 }
 
+/* Da estilo a las palabras a resaltar */
+
+span.cuenta-carrito {
+    font-family: Mestiza;
+    color: white;
+    font-size: 0.9em;
+}
+
 p{
     display: block;
     position: static;
@@ -113,6 +121,22 @@ h2 {
     display: flex;
     justify-content: center;
     grid-area: 1 / 1 / 1 / 1;
+    position: relative;
+}
+
+.cuenta-carrito {
+    background-color: var(--magenta);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23px;
+    line-height: 23px;
+    aspect-ratio: 1;
+    text-align: center;
+    position: absolute;
+    bottom: 8%;
+    z-index: 1;
 }
 
 .icono-carrito {
@@ -329,6 +353,10 @@ a {
         grid-row: 1;
         justify-content: flex-end;
         margin-right: 1.8em;
+    }
+    
+    .cuenta-carrito {
+        bottom: -6%;
     }
 
     .menu {
