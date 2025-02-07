@@ -66,9 +66,9 @@ p.last {
 
 h1{
     position: relative;
-    font-size: clamp(1.175rem, 2vw, 19rem);
+    font-size: clamp(1.5rem, 2vw, 19rem);
     font-family: "mestiza", sans-serif;
-    font-weight: 700;
+    font-weight:900;
     font-style: normal;
     text-align: center;
     width: 100%; /* Cambia 100vw por 100% para evitar desbordamientos */
