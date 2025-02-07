@@ -22,7 +22,6 @@ function crearTarjetasProductosInicio() {
                 <span class="cantidad" id="cantidad-${producto.id}">1</span>
                 <button class="sumar" data-id="${producto.id}">+</button>
             </div>
-            <button class="agregar-carrito" data-id="${producto.id}">Agregar al carrito</button>
         `;
 
         // Agregar eventos a los botones de sumar y restar
@@ -43,10 +42,6 @@ function crearTarjetasProductosInicio() {
                 cantidadElemento.textContent = cantidad;
             }
         });
-
-        // Agregar evento al botón de agregar al carrito
-        const botonAgregar = nuevoMezcal.querySelector(".agregar-carrito");
-        botonAgregar.addEventListener("click", () => agregarAlCarrito(producto, cantidad));
 
         // Agregar la tarjeta al contenedor
         contenedorTarjetas.appendChild(nuevoMezcal);

@@ -25,7 +25,9 @@ html, body {
 /* Da estilo a las palabras a resaltar */
 
 span.cuenta-carrito {
-    font-family: Mestiza;
+    font-family: "mestiza", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     color: white;
     font-size: 0.9em;
 }

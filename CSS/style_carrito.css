@@ -76,7 +76,9 @@ h1{
 h3 {
     position: relative;
     font-size: clamp(1.3rem, 3vw, 2rem);
-    font-family: Mestiza-Bold;
+    font-family: "mestiza", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     text-align: center;
     width: 100%; /* Cambia 100vw por 100% para evitar desbordamientos */
     max-width: 90%; /* Asegura que no ocupe más del 90% del contenedor */
@@ -175,7 +177,8 @@ h3 {
 }
 
 .productos-cont {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 2em;
     margin: 1em;
@@ -189,6 +192,19 @@ h3 {
 
 .tarjeta-ecommerce img{
     width: 30%;
+}
+
+.cantidad-container button {
+    background-color: var(--café);
+    color: white;
+    font-family: 'AR One Sans';
+    font-weight: bold;
+    font-size: clamp(0.875rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
+    border: none;
+    border-radius: 12px;
+    padding: 0.8em 3em;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(26, 70, 102, 0.25);
 }
 
 button {

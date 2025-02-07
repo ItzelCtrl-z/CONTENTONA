@@ -33,7 +33,9 @@ p{
 /* Da estilo a las palabras a resaltar */
 
 span.cuenta-carrito {
-    font-family: Mestiza;
+    font-family: "mestiza", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     color: white;
     font-size: 0.9em;
 }
@@ -64,7 +66,9 @@ h1{
     position: relative;
     font-size: clamp(2rem, 2vw, 19rem);
     text-align: center;
-    font-family: Mestiza-Black;
+    font-family: "mestiza", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     width: 100%; /* Cambia 100vw por 100% para evitar desbordamientos */
     max-width: 90%; /* Asegura que no ocupe más del 90% del contenedor */
     margin: 0 auto; /* Centra el texto */
@@ -78,7 +82,9 @@ h1{
 h2 {
     position: relative;
     font-size: clamp(1.4rem, 2vw, 10rem);
-    font-family: Mestiza-BoldItalic;
+    font-family: "mestiza", sans-serif;
+    font-weight: 700;
+    font-style: italic;
     text-align: center;
     width: 100%; /* Cambia 100vw por 100% para evitar desbordamientos */
     max-width: 90%; /* Asegura que no ocupe más del 90% del contenedor */
