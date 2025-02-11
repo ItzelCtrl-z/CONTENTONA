@@ -236,6 +236,7 @@ h3 {
 .restar {
     grid-area: 2 / 2 / 3 / 3; /* Segunda columna, segunda fila */
     font-family: 'AR One Sans';
+    align-self: flex-end;
 }
 
 .cantidad {
@@ -251,8 +252,10 @@ h3 {
     align-items: center;
     width: 100%; /* Asegura que ocupe todo el ancho de la celda */
     height: 100%; /* Asegura que ocupe todo el alto de la celda */
-    font-size: 1.2rem; /* Ajusta el tamaño si es necesario */
+    font-size: 1.2rem; /* Aumenta el tamaño del número */
     align-self: flex-end;
+    height: 15vh;
+    padding: 5px; /* Ajusta el espacio interno */
 }
 
 body .tabla-car p {
@@ -271,6 +274,7 @@ body .tabla-car p {
 .sumar {
     grid-area: 2 / 4 / 3 / 5; /* Cuarta columna, segunda fila */
     font-family: 'AR One Sans';
+    align-self: flex-end;
 }
 
 .tabla-car button {
@@ -278,11 +282,15 @@ body .tabla-car p {
     color: var(--café);
     font-family: 'AR One Sans';
     font-weight: bold;
-    font-size: clamp(0.875rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
+    font-size: clamp(1rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
     border: 7px double rgba(102, 42, 26, 0.80);
     border-radius:0;
     padding: 0.8em 3em;
     cursor: pointer;
+    height: 25px; /* Ajusta según necesites */
+    padding: 2px 5px; /* Reduce el padding interno */
+    font-size: 1.5rem; /* Reduce el tamaño del texto si es necesario */
+    height: 15vh;
 }
 
 button {
@@ -296,6 +304,7 @@ button {
     padding: 0.8em 3em;
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(26, 70, 102, 0.25);
+
 }
 
 
