@@ -194,7 +194,49 @@ h3 {
     width: 30%;
 }
 
-.cantidad-container button {
+.tabla-car{
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 4em 8em;
+} 
+
+.tabla-car img{
+    grid-area: 1/1/4/4;
+    height: 100%; /* Ocupa toda la altura de la celda */
+    object-fit: cover; /* Para que se ajuste sin deformarse */
+    margin: 0;
+    padding: 0;
+    display: block; /* Evita espacios no deseados */
+}
+
+.tabla-car h3 {
+    grid-area: 1 / 2 / 2 / 5; /* De la fila 1, columna 2 a la fila 2, columna 5 */
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    align-self: center; /* Lo centra verticalmente */
+    justify-self: center; /* Lo centra horizontalmente */
+}
+
+.restar {
+    grid-area: 2 / 2 / 3 / 3; /* Segunda columna, segunda fila */
+}
+
+.cantidad {
+    grid-area: 2 / 3 / 3 / 4; /* Tercera columna, segunda fila */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que ocupe todo el ancho de la celda */
+    height: 100%; /* Asegura que ocupe todo el alto de la celda */
+    font-size: 1.2rem; /* Ajusta el tamaño si es necesario */
+}
+
+.sumar {
+    grid-area: 2 / 4 / 3 / 5; /* Cuarta columna, segunda fila */
+}
+
+.tabla-car button {
     background-color: var(--café);
     color: white;
     font-family: 'AR One Sans';

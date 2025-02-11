@@ -14,15 +14,15 @@ function crearTarjetasProductosInicio() {
 
         // Crear el contenido de la tarjeta con imagen
         nuevoMezcal.innerHTML = `
+        <div class="tabla-car">
             <img src="${producto.imagen}" alt="${producto.nombre}" class="imagen-ecommerce">
             <h3>${producto.nombre}</h3>
             <p>Precio: $${producto.precio}</p>
-            <div class="cantidad-container">
-                <button class="restar" data-id="${producto.id}">-</button>
-                <span class="cantidad" id="cantidad-${producto.id}">1</span>
-                <button class="sumar" data-id="${producto.id}">+</button>
-            </div>
-        `;
+            <button class="restar" data-id="${producto.id}">-</button>
+            <span class="cantidad" id="cantidad-${producto.id}">1</span>
+            <button class="sumar" data-id="${producto.id}">+</button>
+        </div>         
+    `;
 
         // Agregar eventos a los botones de sumar y restar
         const botonSumar = nuevoMezcal.querySelector(".sumar");
