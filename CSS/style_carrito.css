@@ -244,7 +244,6 @@ h3 {
     grid-area: 2 / 2 / 3 / 3; /* Segunda columna, segunda fila */
     font-family: 'AR One Sans';
     align-self: flex-end;
-    position: ;
 }
 
 .cantidad {
@@ -290,13 +289,13 @@ body .tabla-car p {
     color: var(--café);
     font-family: 'AR One Sans';
     font-weight: bold;
-    font-size: clamp(1rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
+    font-size: clamp(1.2rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
     border: 7px double rgba(102, 42, 26, 0.80);
     border-radius:0;
     padding: 0.8em 3em;
     cursor: pointer;
     padding: 2px 5px; /* Reduce el padding interno */
-    font-size: 1.5rem; /* Reduce el tamaño del texto si es necesario */
+    font-size: 1.7rem; /* Reduce el tamaño del texto si es necesario */
     height: 15vh;
 }
 
@@ -534,6 +533,11 @@ a {
 
     .tabla-car button {
         height: 28vh;
+        font-size: 2.3rem; /* Reduce el tamaño del texto si es necesario */
+    }
+
+    .cantidad {
+        font-size: 1.5rem; /* Aumenta el tamaño del número */
     }
 
     .cantidad {
