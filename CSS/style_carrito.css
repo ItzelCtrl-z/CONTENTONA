@@ -218,12 +218,12 @@ h3 {
     position: relative;
     grid-area: 1 / 2 / 2 / 2; /* De la fila 1, columna 2 a la fila 2, columna 5 */
     text-align: center;
-    align-items: center; /* Centra el texto verticalmente */
+    align-items:flex-end; /* Centra el texto verticalmente */
     justify-content: center; /* Centra el texto horizontalmente */
     font-size: clamp(1.5rem, 3vw, 2.1rem);
     align-self: start; /* Asegura que se alinee arriba */
     justify-self: center; /* Centra horizontalmente */
-    margin-bottom: 0.5em; /* Ajusta el espaciado */
+    padding-bottom: 1em;
 }
 
 .tabla-car p {
@@ -237,6 +237,7 @@ h3 {
     font-size: 1.2rem;
     text-align: center;
     padding-left: 10px;
+    margin: 0;
 }
 
 .restar {
@@ -684,6 +685,12 @@ a {
         text-align: center; /* Centra el texto */
         margin: 0;
         padding: 0;
+    }
+
+    .tabla-car h3 {
+        font-size: 2.2em;
+        margin: 0;
+        justify-content: flex-start;
     }
 
 }
