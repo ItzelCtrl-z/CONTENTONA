@@ -196,10 +196,11 @@ h3 {
 
 .tabla-car{
     display: grid;
+    position: relative;
     padding: 10px;
+    padding-right: 0;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto 1fr auto; /* Agregamos una fila flexible */
-    display: grid;
     justify-content: center; /* Opcional: centrar la tabla en su contenedor */
 } 
 
@@ -213,8 +214,12 @@ h3 {
 }
 
 .tabla-car h3 {
+    display: flex;
+    position: relative;
     grid-area: 1 / 2 / 2 / 2; /* De la fila 1, columna 2 a la fila 2, columna 5 */
     text-align: center;
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center; /* Centra el texto horizontalmente */
     font-size: clamp(1.5rem, 3vw, 2.1rem);
     align-self: start; /* Asegura que se alinee arriba */
     justify-self: center; /* Centra horizontalmente */
@@ -231,12 +236,14 @@ h3 {
     height: 100%;
     font-size: 1.2rem;
     text-align: center;
+    padding-left: 10px;
 }
 
 .restar {
     grid-area: 2 / 2 / 3 / 3; /* Segunda columna, segunda fila */
     font-family: 'AR One Sans';
     align-self: flex-end;
+    position: ;
 }
 
 .cantidad {
@@ -287,7 +294,6 @@ body .tabla-car p {
     border-radius:0;
     padding: 0.8em 3em;
     cursor: pointer;
-    height: 25px; /* Ajusta según necesites */
     padding: 2px 5px; /* Reduce el padding interno */
     font-size: 1.5rem; /* Reduce el tamaño del texto si es necesario */
     height: 15vh;
@@ -517,6 +523,34 @@ a {
         padding-bottom: 25%;
     }
 
+    .tabla-car img{
+        grid-area: 1/1/4/4;
+        height: auto; /* Ocupa toda la altura de la celda */
+        width: 23%;
+        align-self: flex-end; /* Centrado vertical */
+        align-items: center;
+    }
+
+    .tabla-car button {
+        height: 28vh;
+    }
+
+    .cantidad {
+        height: 28vh;
+    }
+
+    .tabla-car p {
+        grid-area: 2 / 5 / 3 / 6; /* Segunda fila, quinta columna */
+        display: flex;
+        justify-content: center; /* Centrado horizontal */
+        font-size: 1.2rem; /* Tamaño base */
+        align-self: flex-end; /* Centrado vertical */
+        width: 100%;
+        height: 100%;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
     div.cont_botellas{
         height: 70vh; /* Mantén el alto consistente */
         width: auto;  /* Asegura que ocupe el ancho completo */
@@ -736,4 +770,24 @@ a {
     gap: 2em;
     margin: 1em;
 }
+
+.cantidad {
+    border: 5px double rgba(102, 42, 26, 0.206);
+    border-left: none;
+    border-right: none;
+}
+
+.tabla-car button {
+    border: 5px double rgba(102, 42, 26, 0.80);
+    width: 100%; /* Ajusta al ancho de su celda */
+}
+
+.tabla-car img {
+    margin-left: 0;
+    padding-right: 10px;
+}
+
+.tabla-car h3 {
+    grid-area: 1 / 1 / 2 / 6; /* De la fila 1, columna 3 a la fila 1, columna 6 */
     }
+}
