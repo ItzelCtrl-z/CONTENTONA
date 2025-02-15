@@ -1,4 +1,6 @@
 
+const reiniciarCarritoElement = document.getElementById("reiniciar");
+
 // Definir la variable una sola vez de forma global
 window.contenedorTarjetas = document.getElementById("productos-cont");
 
@@ -34,12 +36,19 @@ function crearTarjetasProductosInicio() {
         botonSumar.addEventListener("click", () => {
             cantidad++;
             cantidadElemento.textContent = cantidad;
-        });
+
+            // Agregar al carrito (ya tienes el producto, no necesitas buscarlo)
+               agregarAlCarrito(producto);
+            });
 
         botonRestar.addEventListener("click", () => {
             if (cantidad > 1) {
                 cantidad--;
                 cantidadElemento.textContent = cantidad;
+                restarAlCarrito(producto);
+            } else {
+                reiniciarCarrito(producto);
+                nuevoMezcal.remove();
             }
         });
 

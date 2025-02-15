@@ -151,6 +151,7 @@ h3 {
 }
 
 /* Tarjetas de productos */
+
 .productos-container {
     display: flex;
     justify-content: center;
@@ -193,6 +194,73 @@ h3 {
 .tarjeta-ecommerce img{
     width: 30%;
 }
+
+/* Botón de las tarjetas de productos */
+
+button {
+    background-color: var(--azul);
+    color: white;
+    font-family: 'AR One Sans';
+    font-weight: bold;
+    font-size: clamp(0.875rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
+    border: none;
+    border-radius: 12px;
+    padding: 0.8em 3em;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(26, 70, 102, 0.25);
+
+}
+
+/* Total parcial */
+
+.total {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.total p {
+    font-family: 'AR One Sans';
+    font-style: italic;
+    font-size: 0.8em;
+    text-align: left;
+    padding-left: 3.5em;
+    grid-area: 2 / 1 / 4 / 4; /* Segunda fila, primera columna */
+}
+
+.total-par{
+    display: contents;
+}
+
+.total-par .texto{
+    display: flex;
+    padding-left: 3em;
+    grid-area: 1 / 1 / 4 / 4; /* Segunda fila, primera columna */
+}
+
+.total-par .importe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: 1 / 5 / 1 / 6; /* Primera fila, quinta columna */
+}
+
+/* Botones pago y vaciado */
+.btn-car{
+    display: flex;
+    justify-content: center;
+    gap:2em;
+    padding-bottom: 3em;
+    width: 100%;
+}
+
+.btn-car button {
+    flex: 1; /* Ambos botones ocupan el mismo espacio */
+    text-align: center;
+    max-width: 300px; /* Ajusta el ancho máximo si es necesario */
+}
+
+/* Tabla del producto */
 
 .tabla-car{
     display: grid;
@@ -298,21 +366,6 @@ body .tabla-car p {
     font-size: 1.7rem; /* Reduce el tamaño del texto si es necesario */
     height: 15vh;
 }
-
-button {
-    background-color: var(--azul);
-    color: white;
-    font-family: 'AR One Sans';
-    font-weight: bold;
-    font-size: clamp(0.875rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
-    border: none;
-    border-radius: 12px;
-    padding: 0.8em 3em;
-    cursor: pointer;
-    box-shadow: 0px 4px 4px rgba(26, 70, 102, 0.25);
-
-}
-
 
 /* Da formato a los botones call to action */
 
@@ -714,6 +767,10 @@ a {
         align-items: center; /* Centra verticalmente */
     }
 
+    .menu-desktop{
+        display: none;
+    }
+
     .logo {
         display: flex;
         padding-top: 1em;
@@ -742,7 +799,7 @@ a {
 
 /* dispositivos móviles */
 
-@media only screen and (max-width: 1200px) and (min-width: 320px) {
+@media only screen and (max-width: 540px) and (min-width: 320px) {
         .menu-desktop {
             display: none; /* Oculta el menú en tablets y móviles */
         }
@@ -800,5 +857,18 @@ a {
 
 .tabla-car h3 {
     grid-area: 1 / 1 / 2 / 6; /* De la fila 1, columna 3 a la fila 1, columna 6 */
+    }
+
+    .total-par .texto{
+        padding-left: 1em;
+    }
+
+    .total-par .importe{
+        padding-right: 1em;
+    }
+
+    .total p {
+        padding-left: 1.2em;
+        grid-area: 2 / 1 / 2 / 5; /* Segunda fila, primera columna */
     }
 }
