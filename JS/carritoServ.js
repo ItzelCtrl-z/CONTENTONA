@@ -14,6 +14,9 @@ function agregarAlCarrito(producto) {
 
     // **Actualizar el número del carrito inmediatamente**
     actualizarNumeroCarrito();
+
+    // **Actualizar la cantidad en la interfaz**
+    actualizarCantidadEnCarrito(producto.id);
 }
 
 function restarAlCarrito(producto) {
@@ -31,9 +34,27 @@ function restarAlCarrito(producto) {
 
     localStorage.setItem("mezcales", JSON.stringify(memoria));
 
-    // **Actualizar el número del carrito inmediatamente**
+    // Actualizar el número del carrito
     actualizarNumeroCarrito();
+
+    // Actualizar la cantidad en el carrito si el producto ya está visible
+    actualizarCantidadEnCarrito(producto.id);
+
+    // Verificar si el carrito quedó vacío y mostrar el mensaje
+    revisarMensajeVacio();
 }
+
+function actualizarCantidadEnCarrito(idProducto) {
+    const memoria = JSON.parse(localStorage.getItem("mezcales")) || [];
+    const productoEnCarrito = memoria.find(mezcal => mezcal.id === idProducto);
+
+    if (productoEnCarrito) {
+        const cantidadElemento = document.getElementById(`cantidad-${idProducto}`);
+        if (cantidadElemento) {
+            cantidadElemento.textContent = productoEnCarrito.cantidad;
+        }
+    }
+}    
 
 function getNuevoProductoParaMemoria(producto) {
     return { ...producto, cantidad: 1 }; // Creamos una copia del producto con cantidad 1

@@ -18,7 +18,11 @@ function crearTarjetasProductosInicio(productos) {
 
         // Agregar evento al botón
         const botonAgregar = nuevoMezcal.querySelector(".agregar-carrito");
-        botonAgregar.addEventListener("click", () => agregarAlCarrito(producto));
+        botonAgregar.addEventListener("click", () => {
+            agregarAlCarrito(producto);
+            actualizarTotal(); // Se actualiza el total inmediatamente
+        });
+        
 
         // Agregar la tarjeta al contenedor
         contenedorTarjetas.appendChild(nuevoMezcal);
