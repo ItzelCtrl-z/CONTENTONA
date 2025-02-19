@@ -2,22 +2,25 @@
 function agregarAlCarrito(producto) {
     const memoria = JSON.parse(localStorage.getItem("mezcales")) || [];
     const indiceProducto = memoria.findIndex(mezcal => mezcal.id === producto.id);
-    const nuevaMemoria = [...memoria]; // Clonamos el array para evitar modificarlo directamente
+    const nuevaMemoria = [...memoria];
 
     if (indiceProducto === -1) {
-        nuevaMemoria.push(getNuevoProductoParaMemoria(producto));
+        // Producto nuevo: agrégalo y crea la tarjeta
+        const nuevoProducto = getNuevoProductoParaMemoria(producto);
+        nuevaMemoria.push(nuevoProducto);
+        crearTarjetaProducto(nuevoProducto); // Crear tarjeta en tiempo real
     } else {
+        // Producto existente: solo actualiza la cantidad e importe
         nuevaMemoria[indiceProducto].cantidad++;
+        actualizarCantidadEImporte(producto.id);
     }
 
     localStorage.setItem("mezcales", JSON.stringify(nuevaMemoria));
 
-    // **Actualizar el número del carrito inmediatamente**
     actualizarNumeroCarrito();
-
-    // **Actualizar la cantidad en la interfaz**
-    actualizarCantidadEnCarrito(producto.id);
+    actualizarTotal();
 }
+
 
 function restarAlCarrito(producto) {
     let memoria = JSON.parse(localStorage.getItem("mezcales")) || [];
@@ -39,6 +42,9 @@ function restarAlCarrito(producto) {
 
     // **Actualizar la cantidad en el carrito si el producto ya está visible**
     actualizarCantidadEnCarrito(producto.id);
+
+    // Verificar si el carrito quedó vacío y mostrar el mensaje
+    revisarMensajeVacio();
 }
 
 function actualizarCantidadEnCarrito(idProducto) {
