@@ -19,6 +19,7 @@ function agregarAlCarrito(producto) {
 
     actualizarNumeroCarrito();
     actualizarTotal();
+    revisarMensajeVacio(); // 👉 Actualiza la visualización de mensajes y botones
 }
 
 
