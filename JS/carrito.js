@@ -2,66 +2,20 @@ const reiniciarCarritoElement = document.getElementById("reiniciar");
 const carritoVacioElement = document.getElementById("carrito-vacio");
 const totalElement = document.getElementById("total");
 
-// Definir la variable una sola vez de forma global
+// Contenedor global para las tarjetas
 window.contenedorTarjetas = document.getElementById("productos-cont");
 
-// Al cargar la página, revisar si hay productos y ocultar el mensaje si es necesario
+// Cargar tarjetas al iniciar la página
 document.addEventListener("DOMContentLoaded", () => {
+    const productosEnCarrito = JSON.parse(localStorage.getItem("mezcales")) || [];
+    productosEnCarrito.forEach(crearTarjetaProducto); // Usamos solo esta función
+    actualizarTotal();
     revisarMensajeVacio();
 });
 
-/** Crea las tarjetas de productos */
-// Función para generar las tarjetas del carrito
-function crearTarjetasProductosInicio() {
-    const productosEnCarrito = JSON.parse(localStorage.getItem("mezcales")) || [];
-    const contenedorCarrito = document.getElementById("productos-cont");
-
-    // Limpiar el contenedor antes de agregar las tarjetas
-    contenedorCarrito.innerHTML = "";
-
-    // Generar las tarjetas solo para los productos en el carrito
-    productosEnCarrito.forEach(producto => {
-        // Crear la tarjeta
-        const nuevoMezcal = document.createElement("div");
-        nuevoMezcal.classList.add("tarjeta-ecommerce");
-
-        // Crear el contenido de la tarjeta con imagen
-        nuevoMezcal.innerHTML = `
-            <div class="tabla-car">
-                <img src="${producto.imagen}" alt="${producto.nombre}" class="imagen-ecommerce">
-                <h3>${producto.nombre}</h3>
-                <p>Precio: $${producto.precio}</p>
-                <button class="restar" data-id="${producto.id}">-</button>
-                <span class="cantidad" id="cantidad-${producto.id}">${producto.cantidad}</span>
-                <button class="sumar" data-id="${producto.id}">+</button>
-            </div>
-        `;
-
-        // Agregar eventos a los botones de sumar y restar
-        const botonSumar = nuevoMezcal.querySelector(".sumar");
-        const botonRestar = nuevoMezcal.querySelector(".restar");
-
-        botonSumar.addEventListener("click", () => {
-            agregarAlCarrito(producto);
-            actualizarTotal();
-        });
-
-        botonRestar.addEventListener("click", () => {
-            restarAlCarrito(producto);
-            actualizarTotal();
-        });
-
-        // Agregar la tarjeta al contenedor
-        contenedorCarrito.appendChild(nuevoMezcal);
-    });
-}
-
-// Llamamos a la función para generar las tarjetas al cargar la página
-crearTarjetasProductosInicio();
-actualizarTotal();
-
+/** Crea una tarjeta de producto con información completa */
 function crearTarjetaProducto(producto) {
-    // Verificar si la tarjeta ya existe para no duplicar
+    // Evita duplicados
     if (document.getElementById(`tarjeta-${producto.id}`)) return;
 
     const nuevoMezcal = document.createElement("div");
@@ -74,15 +28,14 @@ function crearTarjetaProducto(producto) {
         <div class="tabla-car">
             <img src="${producto.imagen}" alt="${producto.nombre}" class="imagen-ecommerce">
             <h3>${producto.nombre}</h3>
-            <p>Precio: $${producto.precio}</p>
             <button class="restar" data-id="${producto.id}">-</button>
             <span class="cantidad" id="cantidad-${producto.id}">${producto.cantidad}</span>
             <button class="sumar" data-id="${producto.id}">+</button>
-            <p class="importe-producto" id="importe-${producto.id}">Importe: $${subtotal.toFixed(2)}</p>
+            <p class="importe-producto" id="importe-${producto.id}">$${subtotal.toFixed(2)}</p>
         </div>
     `;
 
-    // Eventos para botones
+    // Eventos para sumar y restar
     nuevoMezcal.querySelector(".sumar").addEventListener("click", () => {
         agregarAlCarrito(producto);
         actualizarCantidadEImporte(producto.id);
@@ -95,76 +48,49 @@ function crearTarjetaProducto(producto) {
         actualizarTotal();
     });
 
-    window.contenedorTarjetas.appendChild(nuevoMezcal); // Agrega la tarjeta al contenedor
+    window.contenedorTarjetas.appendChild(nuevoMezcal);
 }
 
+/** Actualiza la cantidad e importe en la tarjeta */
 function actualizarCantidadEImporte(idProducto) {
     const memoria = JSON.parse(localStorage.getItem("mezcales")) || [];
     const producto = memoria.find(mezcal => mezcal.id === idProducto);
 
     if (producto) {
-        const cantidadElemento = document.getElementById(`cantidad-${idProducto}`);
-        const importeElemento = document.getElementById(`importe-${idProducto}`);
-
-        if (cantidadElemento && importeElemento) {
-            cantidadElemento.textContent = producto.cantidad;
-            const nuevoImporte = producto.precio * producto.cantidad;
-            importeElemento.textContent = `Importe: $${nuevoImporte.toFixed(2)}`;
-        }
+        document.getElementById(`cantidad-${idProducto}`).textContent = producto.cantidad;
+        document.getElementById(`importe-${idProducto}`).textContent = `Importe: $${(producto.precio * producto.cantidad).toFixed(2)}`;
     }
 }
 
-
+/** Actualiza el total general */
 function actualizarTotal() {
-    const productosEnCarrito = JSON.parse(localStorage.getItem("mezcales")) || [];
-    let precioTotal = 0;
-
-    productosEnCarrito.forEach(producto => {
-        precioTotal += producto.precio * producto.cantidad; 
-    });
-
-    // Insertamos el total en el HTML
-    document.querySelector(".importe").textContent = `$${precioTotal.toFixed(2)}`;
+    const productos = JSON.parse(localStorage.getItem("mezcales")) || [];
+    const total = productos.reduce((sum, producto) => sum + producto.precio * producto.cantidad, 0);
+    document.querySelector(".importe").textContent = `$${total.toFixed(2)}`;
 }
 
-// Seleccionar el botón "Vaciar carrito"
-const botonVaciarCarrito = document.getElementById("reiniciar");
-
-// Función para vaciar el carrito
-function vaciarCarrito() {
-    // Eliminar productos del localStorage
-    localStorage.removeItem("mezcales");
-
-    // Vaciar el contenedor de productos en el carrito
-    const contenedorCarrito = document.getElementById("productos-cont");
-    contenedorCarrito.innerHTML = "";
-
-    // Actualizar el total a $0.00
-    document.querySelector(".importe").textContent = "$0.00";
-
-    // Reiniciar el contador del carrito
-    document.getElementById("cuenta-carrito").textContent = "0";
-
-    // Mostrar el mensaje de carrito vacío
-    revisarMensajeVacio(true);
+/** Actualiza el número del carrito en el header */
+function actualizarNumeroCarrito() {
+    const productos = JSON.parse(localStorage.getItem("mezcales")) || [];
+    const cuenta = productos.reduce((acc, producto) => acc + producto.cantidad, 0);
+    document.getElementById("cuenta-carrito").innerText = cuenta;
 }
 
-// Agregar evento al botón
-botonVaciarCarrito.addEventListener("click", vaciarCarrito);
-
+/** Muestra u oculta el mensaje de carrito vacío */
 function revisarMensajeVacio() {
     const productos = JSON.parse(localStorage.getItem("mezcales"));
-    
-    // Mostrar el mensaje de carrito vacío si no hay productos
-    carritoVacioElement.classList.toggle("escondido", productos && productos.length > 0);
-    
-    // Ocultar el total si no hay productos
-    totalElement.classList.toggle("escondido", !productos || productos.length === 0);
+    const hayProductos = productos && productos.length > 0;
 
-    // Ocultar los botones .pay y .borrar si no hay productos
-    const botonesCarrito = document.querySelector(".btn-car");
-    botonesCarrito.classList.toggle("escondido", !productos || productos.length === 0);
+    carritoVacioElement.classList.toggle("escondido", hayProductos);
+    totalElement.classList.toggle("escondido", !hayProductos);
+    document.querySelector(".btn-car").classList.toggle("escondido", !hayProductos);
 }
 
-revisarMensajeVacio();
-
+/** Vacía todo el carrito */
+document.getElementById("reiniciar").addEventListener("click", () => {
+    localStorage.removeItem("mezcales");
+    window.contenedorTarjetas.innerHTML = "";
+    document.querySelector(".importe").textContent = "$0.00";
+    actualizarNumeroCarrito();
+    revisarMensajeVacio();
+});
