@@ -34,14 +34,11 @@ function restarAlCarrito(producto) {
 
     localStorage.setItem("mezcales", JSON.stringify(memoria));
 
-    // Actualizar el número del carrito
+    // **Actualizar el número del carrito inmediatamente**
     actualizarNumeroCarrito();
 
-    // Actualizar la cantidad en el carrito si el producto ya está visible
+    // **Actualizar la cantidad en el carrito si el producto ya está visible**
     actualizarCantidadEnCarrito(producto.id);
-
-    // Verificar si el carrito quedó vacío y mostrar el mensaje
-    revisarMensajeVacio();
 }
 
 function actualizarCantidadEnCarrito(idProducto) {

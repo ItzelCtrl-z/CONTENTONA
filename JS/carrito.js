@@ -6,63 +6,52 @@ const totalElement = document.getElementById("total");
 window.contenedorTarjetas = document.getElementById("productos-cont");
 
 /** Crea las tarjetas de productos */
+// Función para generar las tarjetas del carrito
 function crearTarjetasProductosInicio() {
-    const productos = JSON.parse(localStorage.getItem("fotos"))
-    const memoria = JSON.parse(localStorage.getItem("mezcales")) || []; // Obtener productos en el carrito
-    console.log(productos)
+    const productosEnCarrito = JSON.parse(localStorage.getItem("mezcales")) || [];
+    const contenedorCarrito = document.getElementById("productos-cont");
 
-    fotos.forEach(producto => {
+    // Limpiar el contenedor antes de agregar las tarjetas
+    contenedorCarrito.innerHTML = "";
+
+    // Generar las tarjetas solo para los productos en el carrito
+    productosEnCarrito.forEach(producto => {
         // Crear la tarjeta
         const nuevoMezcal = document.createElement("div");
         nuevoMezcal.classList.add("tarjeta-ecommerce");
 
-        // Buscar si el producto ya está en el carrito
-        const productoEnCarrito = memoria.find(mezcal => mezcal.id === producto.id);
-        let cantidad = productoEnCarrito ? productoEnCarrito.cantidad : 1; // Si está, usa su cantidad, si no, inicia en 1
-
         // Crear el contenido de la tarjeta con imagen
         nuevoMezcal.innerHTML = `
-        <div class="tabla-car">
-            <img src="${producto.imagen}" alt="${producto.nombre}" class="imagen-ecommerce">
-            <h3>${producto.nombre}</h3>
-            <p>Precio: $${producto.precio}</p>
-            <button class="restar" data-id="${producto.id}">-</button>
-            <span class="cantidad" id="cantidad-${producto.id}">${cantidad}</span>
-            <button class="sumar" data-id="${producto.id}">+</button>
-        </div>         
-    `;
+            <div class="tabla-car">
+                <img src="${producto.imagen}" alt="${producto.nombre}" class="imagen-ecommerce">
+                <h3>${producto.nombre}</h3>
+                <p>Precio: $${producto.precio}</p>
+                <button class="restar" data-id="${producto.id}">-</button>
+                <span class="cantidad" id="cantidad-${producto.id}">${producto.cantidad}</span>
+                <button class="sumar" data-id="${producto.id}">+</button>
+            </div>
+        `;
 
         // Agregar eventos a los botones de sumar y restar
         const botonSumar = nuevoMezcal.querySelector(".sumar");
         const botonRestar = nuevoMezcal.querySelector(".restar");
-        const cantidadElemento = nuevoMezcal.querySelector(".cantidad");
 
         botonSumar.addEventListener("click", () => {
-            cantidad++;
-            cantidadElemento.textContent = cantidad;
             agregarAlCarrito(producto);
             actualizarTotal();
         });
 
         botonRestar.addEventListener("click", () => {
-            if (cantidad > 1) {
-                cantidad--;
-                cantidadElemento.textContent = cantidad;
-                restarAlCarrito(producto);
-            } else {
-                restarAlCarrito(producto); // Se encarga de eliminar del localStorage
-                nuevoMezcal.remove();
-            }
-
+            restarAlCarrito(producto);
             actualizarTotal();
         });
 
         // Agregar la tarjeta al contenedor
-        contenedorTarjetas.appendChild(nuevoMezcal);
+        contenedorCarrito.appendChild(nuevoMezcal);
     });
 }
 
-// Llamamos a la función para generar las tarjetas
+// Llamamos a la función para generar las tarjetas al cargar la página
 crearTarjetasProductosInicio();
 actualizarTotal();
 
@@ -105,22 +94,10 @@ function vaciarCarrito() {
 // Agregar evento al botón
 botonVaciarCarrito.addEventListener("click", vaciarCarrito);
 
-// Función para revisar si el carrito está vacío
-function revisarMensajeVacio() {
+function revisarMensajeVacio(){
     const productos = JSON.parse(localStorage.getItem("mezcales"));
-    
-    // Mostrar el mensaje de carrito vacío si no hay productos
     carritoVacioElement.classList.toggle("escondido", productos && productos.length > 0);
-    
-    // Ocultar el total si no hay productos
     totalElement.classList.toggle("escondido", !productos || productos.length === 0);
-
-    // Ocultar los botones .pay y .borrar si no hay productos
-    const botonesCarrito = document.querySelector(".btn-car");
-    botonesCarrito.classList.toggle("escondido", !productos || productos.length === 0);
 }
 
-// Al cargar la página, revisar si hay productos y ocultar los botones si es necesario
-document.addEventListener("DOMContentLoaded", () => {
-    revisarMensajeVacio();
-});
+revisarMensajeVacio();
