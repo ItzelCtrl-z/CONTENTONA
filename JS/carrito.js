@@ -13,10 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
     revisarMensajeVacio();
 });
 
-/** Crea una tarjeta de producto con información completa */
 function crearTarjetaProducto(producto) {
-    // Evita duplicados
     if (document.getElementById(`tarjeta-${producto.id}`)) return;
+
+    const fotoProducto = fotos.find(foto => foto.id === producto.id); // Busca la imagen en el array
+    const imagenSrc = fotoProducto ? fotoProducto.imagen : "./IMAGENES/placeholder.jpg"; // Imagen por defecto si no se encuentra
 
     const nuevoMezcal = document.createElement("div");
     nuevoMezcal.classList.add("tarjeta-ecommerce");
@@ -26,7 +27,7 @@ function crearTarjetaProducto(producto) {
 
     nuevoMezcal.innerHTML = `
         <div class="tabla-car">
-            <img src="${producto.imagen}" alt="${producto.nombre}" class="imagen-ecommerce">
+            <img src="${imagenSrc}" alt="${producto.nombre}" class="imagen-ecommerce">
             <h3>${producto.nombre}</h3>
             <button class="restar" data-id="${producto.id}">-</button>
             <span class="cantidad" id="cantidad-${producto.id}">${producto.cantidad}</span>
@@ -35,7 +36,6 @@ function crearTarjetaProducto(producto) {
         </div>
     `;
 
-    // Eventos para sumar y restar
     nuevoMezcal.querySelector(".sumar").addEventListener("click", () => {
         agregarAlCarrito(producto);
         actualizarCantidadEImporte(producto.id);
@@ -51,6 +51,7 @@ function crearTarjetaProducto(producto) {
     window.contenedorTarjetas.appendChild(nuevoMezcal);
 }
 
+
 /** Actualiza la cantidad e importe en la tarjeta */
 function actualizarCantidadEImporte(idProducto) {
     const memoria = JSON.parse(localStorage.getItem("mezcales")) || [];
@@ -58,7 +59,7 @@ function actualizarCantidadEImporte(idProducto) {
 
     if (producto) {
         document.getElementById(`cantidad-${idProducto}`).textContent = producto.cantidad;
-        document.getElementById(`importe-${idProducto}`).textContent = `Importe: $${(producto.precio * producto.cantidad).toFixed(2)}`;
+        document.getElementById(`importe-${idProducto}`).textContent = `$${(producto.precio * producto.cantidad).toFixed(2)}`;
     }
 }
 
