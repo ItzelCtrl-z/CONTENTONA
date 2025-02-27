@@ -248,9 +248,12 @@ button {
 }
 
 /* Botones pago y vaciado */
+
 .btn-car{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap:2em;
     padding-bottom: 3em;
     width: 100%;
@@ -260,6 +263,13 @@ button {
     flex: 1; /* Ambos botones ocupan el mismo espacio */
     text-align: center;
     max-width: 300px; /* Ajusta el ancho máximo si es necesario */
+}
+
+#paypal-button-container{
+    width: 30vw;
+    height: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Tabla del producto */
@@ -411,27 +421,6 @@ body .tabla-car p {
     font-weight: bold;
 }
 
-/* Acomoda las imagenes */
-
-div.imagen {
-    height:80vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centra verticalmente el contenido */
-    overflow: hidden; /* Oculta el desbordamiento si existe */
-    position: relative;
-}
-
-div.imagen img {
-    width: 100%; /* La imagen ocupa el ancho completo */
-    height: 100%; /* La imagen ocupa el alto completo */
-    object-fit: cover; /* Ajusta la imagen para cubrir el área sin deformarla */
-    position: absolute; /* Asegura que la imagen se posicione correctamente */
-   
-}
-
-
 /* Estructura el footer */
 
 footer.contacto {
@@ -518,6 +507,8 @@ a {
         transform: scale(1);
     }
 }
+
+
 
 /* RESPONSIVE MEDIA QUERIES */
 
@@ -833,6 +824,16 @@ a {
         justify-self: center; /* Centra horizontalmente dentro de la celda */
         align-self: center; /* Centra verticalmente dentro de la celda */
     }
+
+    #paypal-button-container {
+        width: 80%; /* Ajusta el ancho del botón de PayPal */
+        max-width: 300px; /* Limita el ancho máximo */
+    }
+
+    .borrar {
+        width: 80%; /* Ajusta el ancho del botón "Vaciar carrito" */
+        max-width: 300px; /* Limita el ancho máximo */
+    }
     
 }
 
@@ -903,16 +904,36 @@ a {
     grid-area: 1 / 2 / 2 / 6; /* De la fila 1, columna 3 a la fila 1, columna 6 */
     }
 
-    .total-par .texto{
+.total-par .texto{
         padding-left: 1em;
     }
 
-    .total-par .importe{
+.total-par .importe{
         padding-right: 1em;
     }
 
-    .total p {
+.total p {
         padding-left: 1.2em;
         grid-area: 2 / 1 / 2 / 5; /* Segunda fila, primera columna */
     }
+
+body .tabla-car p {
+        font-size: clamp(0.8rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
+      }
+
+.btn-car {
+        flex-direction: column; /* Asegura que los botones se apilen verticalmente */
+        gap: 1em; /* Espacio entre los botones */
+    }
+
+#paypal-button-container {
+        width: 80%; /* Ajusta el ancho del botón de PayPal */
+        max-width: 300px; /* Limita el ancho máximo */
+    }
+
+.borrar {
+        width: 80%; /* Ajusta el ancho del botón "Vaciar carrito" */
+        max-width: 300px; /* Limita el ancho máximo */
+    }
+
 }
