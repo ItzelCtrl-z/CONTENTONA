@@ -15,7 +15,7 @@ html, body {
     margin: 0;
     padding: 0;
     background: var(--amarillo);
-    overflow-x: hidden; /* Elimina el scroll horizontal */
+    overflow-x: hidden !important; /* Elimina el scroll horizontal */
     overflow-y: auto;   /* Permite el scroll vertical */
 }
 
@@ -161,6 +161,7 @@ h2 {
     width: 160%; /* Ajusta según lo necesario */
     max-width: 100%; /* Previene que la imagen crezca fuera de su contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
+    padding-top: 0.3em;
 }
 
 .logo a {
@@ -172,7 +173,9 @@ h2 {
 .botones_prod {
     display: flex;
     justify-content: center; /* Centra los botones */
+    align-items: center;
     gap: 1.2rem; /* Ajusta el espacio entre ellos */
+    width: 100%;
     margin-top: 2.4em;
     margin-bottom: 2em;
 }
@@ -590,4 +593,13 @@ a {
 .icono-carrito {
     height: 80%;
 }
+
+.safari .btn-cta {
+    justify-content: center !important;
+    min-width: 120px; /* Evita que los botones se reduzcan demasiado */
+    max-width: 230px; /* Previene que crezcan descontroladamente */
+    
+}
+
     }
+    

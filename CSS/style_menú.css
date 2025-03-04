@@ -92,6 +92,7 @@ span.cuenta-carrito {
     width: 140%; /* Ajusta según lo necesario */
     max-width: 100%; /* Previene que la imagen crezca fuera de su contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
+    padding-top: 0.3em;
 }
 
 .logo a {
