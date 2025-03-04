@@ -13,6 +13,56 @@ document.addEventListener("DOMContentLoaded", () => {
     revisarMensajeVacio();
 });
 
+paypal.Buttons({
+    style: {
+        label: 'pay',
+        height: 40,
+    },
+    createOrder: function(data, actions) {
+        const productos = JSON.parse(localStorage.getItem("mezcales")) || [];
+        const total = productos.reduce((sum, producto) => sum + producto.precio * producto.cantidad, 0);
+
+        console.log("Total calculado:", total); // Depuración
+
+        if (total <= 0) {
+            alert("El carrito está vacío. Agrega productos antes de pagar.");
+            return;
+        }
+
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    value: total.toFixed(2), // Total del carrito
+                    currency_code: 'MXN' // Moneda en pesos mexicanos
+                }
+            }]
+        });
+    },
+    onApprove: function(data, actions) {
+        console.log("Pago aprobado, capturando orden..."); // Depuración
+        return actions.order.capture().then(function(details) {
+            console.log("Pago completado:", details); // Depuración
+
+            // Vaciar el carrito
+            localStorage.removeItem("mezcales");
+            window.contenedorTarjetas.innerHTML = "";
+            document.querySelector(".importe").textContent = "$0.00";
+            actualizarNumeroCarrito();
+            revisarMensajeVacio();
+
+            });
+    },
+    onCancel: function(data) {
+        console.log("Pago cancelado:", data); // Depuración
+        alert("Pago cancelado");
+    },
+    onError: function(err) {
+        console.error("Error en el pago:", err); // Depuración
+        alert('Ocurrió un error al procesar el pago. Por favor, intenta de nuevo.');
+    }
+}).render('#paypal-button-container');
+
+// Crea las tarjetas de los productos
 function crearTarjetaProducto(producto) {
     if (document.getElementById(`tarjeta-${producto.id}`)) return;
 

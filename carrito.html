@@ -21,7 +21,7 @@
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="CSS/style_carrito.css" />
     <!-- Permitirá usar los elementos PayPal -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AbgcNAg8dGUUXcSu5VyRLZ5k91eH2_x16uc0POB8pY3RWdztfcbeSWA_qsbFOKZZgUCSiANt3sbvZhQm&currency=MXN"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=ATXleMca4EtVbBxorQPHRSpedpMM4nJU1tINhmx3FmpN0qlOZkhEUzKmVETMt6UvgwvTLBpVgMxpJSLK&currency=MXN"></script>
     <!-- CAMBIAR EL CLIENT ID POR EL DE LUIS ANDRÉS -->
 </head>
 
@@ -70,16 +70,6 @@
         <div id="paypal-button-container"></div> <!-- Botón de PayPal -->
         <button class="borrar" id="reiniciar">Vaciar carrito</button>
     </section>
-
-    <script>
-        paypal.Buttons({
-            style:{
-                label: 'pay',
-                color: 'blue',
-                height: 40, // Altura del botón
-            }
-        }).render('#paypal-button-container');
-    </script>
 
     <!-- Productos -->
     <section class="productos-container" id="productos-container"></section>
