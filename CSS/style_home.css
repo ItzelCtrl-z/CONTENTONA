@@ -26,7 +26,7 @@ p{
     margin-left: 1.8em;
     margin-bottom: 1em;
     margin-right: 1.5em;
-    text-align: center;
+    text-align: justify;
     color: var(--café);
     font-size: clamp(0.875rem, 2vw, 1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
    }
@@ -52,7 +52,7 @@ p.last {
 }
 
 .contenedor-centro img {
-    width: 20vh; 
+    width: clamp(80px, 15vw, 150px); /* Tamaño mínimo 80px, fluye con 15vw, máximo 150px */
     padding-top: 6%;
     padding-bottom: 7%;
     animation-name: scale;
@@ -184,6 +184,10 @@ span.cuenta-carrito {
     display: inline-block; /* Asegura que el enlace se ajuste al tamaño de su contenido */
 }
 
+.info-marca h2 {
+    padding-bottom: 2.3em;
+}
+
 /* Acomoda la hero image */
 
 div.imagen {
@@ -206,44 +210,66 @@ div.imagen img {
 
 /* Acomoda el close up */
 
-
 div.cont_botellas{
     height: auto; /* Mantén el alto consistente */
     width: 100%;  /* Asegura que ocupe el ancho completo */
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
+    justify-content: left; /* Centra horizontalmente */
     position: relative;
     max-width: 100%; /* Previene desbordamientos */
     overflow: hidden; /* Oculta cualquier exceso */
+    padding-left: 1.5em;
 }
 
 /* Ajusta el estilo específico de la imagen close-up */
 img.close-up {
     width: 60%;  /* Igual que la imagen manos */
-    height: auto; /* Mantén la relación de aspecto */
     object-fit: cover; /* Asegura que se recorte correctamente */
-    border-radius: 8px; /* Opcional, para mantener consistencia */
-    margin-top: 2em;
-    margin-bottom: 2em;
+    border-radius: 3px; /* Opcional, para mantener consistencia */
+    padding-bottom: 2.5em;
+}
+
+div.foto2 {
+    height: auto; /* El alto será el 50% de la altura de la ventana */
+    width: 100%;  /* El ancho ocupará todo el contenedor */
+    display: flex;
+    justify-content: right; /* Centra la imagen horizontalmente */
+    position: relative;
+    max-width: 100%; /* Evita que la imagen se desborde */
+    overflow: hidden; /* Asegura que cualquier parte de la imagen que sobrepase el contenedor se oculte */
+    padding-right: 1.5em;
+    padding-bottom: 1em;
+}
+
+div.foto2 img {
+    width: 60%;  /* La imagen ocupará todo el ancho disponible */
+    position: relative;
+    justify-content: right;
+    height: auto;  /* Mantiene la relación de aspecto original */
+    object-fit: cover; /* La imagen cubre todo el espacio del contenedor sin deformarse */
+    border-radius: 2px;
+    
 }
 
 /* Acomoda y da estilo al paisaje */
 
 div.foto {
-    height: 50vh; /* El alto será el 50% de la altura de la ventana */
+    height: 80vh; /* El alto será el 50% de la altura de la ventana */
     width: 100%;  /* El ancho ocupará todo el contenedor */
     display: flex;
     justify-content: center; /* Centra la imagen horizontalmente */
     position: relative;
     max-width: 100%; /* Evita que la imagen se desborde */
     overflow: hidden; /* Asegura que cualquier parte de la imagen que sobrepase el contenedor se oculte */
+    padding-top: 1.5em;
 }
 
 div.foto img {
-    width: 60%;  /* La imagen ocupará todo el ancho disponible */
-    height: auto;  /* Mantiene la relación de aspecto original */
+    width: 100%;  /* La imagen ocupará todo el ancho disponible */
     object-fit: cover; /* La imagen cubre todo el espacio del contenedor sin deformarse */
-    border-radius: 8px;
+    border-radius: 2px;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 /* Estructura el footer */
@@ -407,24 +433,6 @@ a:hover {
         padding-bottom: 25%;
     }
 
-    div.cont_botellas{
-        height: 70vh; /* Mantén el alto consistente */
-        width: auto;  /* Asegura que ocupe el ancho completo */
-        display: flex;
-        justify-content: center; /* Centra horizontalmente */
-        position: relative;
-        max-width: 100%; /* Previene desbordamientos */
-        overflow: hidden; /* Oculta cualquier exceso */
-    }
-    
-    /* Ajusta el estilo específico de la imagen close-up */
-    img.close-up {
-        width: 100%;  /* Igual que la imagen manos */
-        height: auto; /* Mantén la relación de aspecto */
-        object-fit: cover; /* Asegura que se recorte correctamente */
-        border-radius: 8px; /* Opcional, para mantener consistencia */
-        
-    }
 
     div.imagen {
         height: calc(100vh - 75px); /* 100vh (altura completa de la ventana)  */
@@ -527,6 +535,47 @@ a:hover {
         margin: 0;
         padding: 0;
     }
+
+/* Acomoda el close up */
+
+div.cont_botellas{
+    height: auto; /* Mantén el alto consistente */
+    width: 80%;  /* Asegura que ocupe el ancho completo */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    position: relative;
+    max-width: 100%; /* Previene desbordamientos */
+    overflow: hidden; /* Oculta cualquier exceso */
+}
+
+/* Ajusta el estilo específico de la imagen close-up */
+img.close-up {
+    display: none;
+}
+
+div.foto2 {
+    height: auto; /* El alto será el 50% de la altura de la ventana */
+    width: 70%;  /* El ancho ocupará todo el contenedor */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    position: relative;
+    max-width: 100%; /* Evita que la imagen se desborde */
+    overflow: hidden; /* Asegura que cualquier parte de la imagen que sobrepase el contenedor se oculte */
+    padding-bottom: 2.7em;
+    
+}
+
+div.foto2 img {
+    height: auto;
+    width: 100%;  /* La imagen ocupará todo el ancho disponible */
+    position: relative;
+    justify-content: left;
+    height: auto;  /* Mantiene la relación de aspecto original */
+    object-fit: cover; /* La imagen cubre todo el espacio del contenedor sin deformarse */
+    border-radius: 2px;
+    
+}
+
 }
 
 /* Tablet */
@@ -579,27 +628,76 @@ a:hover {
         
    /* Centra el simbolo del corazon */
 
-.contenedor-centro img {
-    width: 15vh; 
-    padding-top: 6%;
-    padding-bottom: 7%;
-    animation-name: scale;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: cubic-bezier(.54,.21,.37,.78);
-}
-
-.navegacion {
-    padding-top: 0.8em;
-    padding-bottom: 0.5em;
-}
-
-.logo img {
-    width: 140%; /* Ajusta el porcentaje según el tamaño deseado */
-}
-
-.icono-carrito {
-    height: 80%;
-}
+    .contenedor-centro img {
+        width: clamp(80px, 15vw, 150px); /* Tamaño mínimo 80px, fluye con 15vw, máximo 150px */
+        padding-top: 6%;
+        padding-bottom: 7%;
+        animation-name: scale;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: cubic-bezier(.54,.21,.37,.78);
     }
+
+    .navegacion {
+        padding-top: 0.8em;
+        padding-bottom: 0.5em;
+    }
+
+    .logo img {
+        width: 140%; /* Ajusta el porcentaje según el tamaño deseado */
+    }
+
+    .icono-carrito {
+        height: 80%;
+    }
+
+    div.foto {
+        height: auto; /* El alto será el 50% de la altura de la ventana */
+        width: 100%;  /* El ancho ocupará todo el contenedor */
+        display: flex;
+        justify-content: center; /* Centra la imagen horizontalmente */
+        position: relative;
+        max-width: 100%; /* Evita que la imagen se desborde */
+        overflow: hidden; /* Asegura que cualquier parte de la imagen que sobrepase el contenedor se oculte */
+        padding-top: 2.9em;
+    }
+
+    p.second {
+        margin-bottom: 0%;
+        margin-top: 0%;
+    }
+
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 650px) {
+    .contenedor-centro img {
+        width: 100px; /* Tamaño fijo en pantallas muy pequeñas */
+    }
+
+    .info-marca h2 {
+        padding-bottom: 1em;
+        margin-top: 1.8em;
+    }
+
+    img.close-up {
+        padding-bottom: 2.3em;
+    }
+
+    div.foto {
+        padding-top: 2.5em;
+    }
+
+    p.p2 {
+        margin-bottom: 0em;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .contenedor-centro {
+       padding-bottom: 1em;
+    }
+}

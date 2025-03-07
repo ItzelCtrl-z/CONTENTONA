@@ -29,7 +29,7 @@ p{
     color: var(--café);
     font-size: clamp(0.875rem, 2vw, 1.1rem); /* Mínimo 0.875rem, fluido según 2vw, máximo 1rem */
    }
- 
+
 /* Da estilo a las palabras a resaltar */
 
 span.cuenta-carrito {

@@ -51,7 +51,8 @@ span.cuenta-carrito {
 }
 
 .contenedor-centro img {
-    width: 20vh; 
+    width: clamp(80px, 15vw, 150px); /* Tamaño mínimo 80px, fluye con 15vw, máximo 150px */
+    max-width: 200px; /* Límite superior */
     padding-top: 6%;
     padding-bottom: 7%;
     animation-name: scale;
@@ -571,7 +572,7 @@ a {
    /* Centra el simbolo del corazon */
 
 .contenedor-centro img {
-    width: 15vh; 
+    width: clamp(80px, 15vw, 150px); /* Tamaño mínimo 80px, fluye con 15vw, máximo 150px */
     padding-top: 6%;
     padding-bottom: 7%;
     animation-name: scale;
@@ -603,3 +604,10 @@ a {
 
     }
     
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 650px) {
+    .contenedor-centro img {
+        width: 100px; /* Tamaño fijo en pantallas muy pequeñas */
+    }
+}
