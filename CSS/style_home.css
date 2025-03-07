@@ -209,8 +209,14 @@ div.imagen img {
 }
 
 /* Acomoda el close up */
+.contenedor-imagenes {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
 
 div.cont_botellas{
+    position: absolute;
     height: auto; /* Mantén el alto consistente */
     width: 100%;  /* Asegura que ocupe el ancho completo */
     display: flex;
@@ -219,18 +225,20 @@ div.cont_botellas{
     max-width: 100%; /* Previene desbordamientos */
     overflow: hidden; /* Oculta cualquier exceso */
     padding-left: 1.5em;
+    top: -2.5em; /* Ajusta la posición vertical (1 cm hacia arriba) */
+    z-index: 1;
 }
 
 /* Ajusta el estilo específico de la imagen close-up */
-img.close-up {
+img.close-up { 
     width: 60%;  /* Igual que la imagen manos */
     object-fit: cover; /* Asegura que se recorte correctamente */
     border-radius: 3px; /* Opcional, para mantener consistencia */
-    padding-bottom: 2.5em;
+    padding-bottom: 0em;
 }
 
 div.foto2 {
-    height: auto; /* El alto será el 50% de la altura de la ventana */
+    height: auto; /* El alto será automatico  */
     width: 100%;  /* El ancho ocupará todo el contenedor */
     display: flex;
     justify-content: right; /* Centra la imagen horizontalmente */
@@ -238,7 +246,7 @@ div.foto2 {
     max-width: 100%; /* Evita que la imagen se desborde */
     overflow: hidden; /* Asegura que cualquier parte de la imagen que sobrepase el contenedor se oculte */
     padding-right: 1.5em;
-    padding-bottom: 1em;
+    z-index: 2;
 }
 
 div.foto2 img {
@@ -248,6 +256,7 @@ div.foto2 img {
     height: auto;  /* Mantiene la relación de aspecto original */
     object-fit: cover; /* La imagen cubre todo el espacio del contenedor sin deformarse */
     border-radius: 2px;
+
     
 }
 
@@ -538,42 +547,45 @@ a:hover {
 
 /* Acomoda el close up */
 
-div.cont_botellas{
-    height: auto; /* Mantén el alto consistente */
-    width: 80%;  /* Asegura que ocupe el ancho completo */
+.contenedor-imagenes {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    position: relative;
-    max-width: 100%; /* Previene desbordamientos */
-    overflow: hidden; /* Oculta cualquier exceso */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 0 auto; /* Centra el contenedor en la página */
+}
+
+
+div.cont_botellas{
+    display: none;
 }
 
 /* Ajusta el estilo específico de la imagen close-up */
 img.close-up {
     display: none;
+    position: static;
 }
 
 div.foto2 {
-    height: auto; /* El alto será el 50% de la altura de la ventana */
-    width: 70%;  /* El ancho ocupará todo el contenedor */
     display: flex;
     justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+    width: 60%; /* Ocupa todo el ancho disponible */
     position: relative;
     max-width: 100%; /* Evita que la imagen se desborde */
     overflow: hidden; /* Asegura que cualquier parte de la imagen que sobrepase el contenedor se oculte */
     padding-bottom: 2.7em;
-    
 }
 
 div.foto2 img {
     height: auto;
     width: 100%;  /* La imagen ocupará todo el ancho disponible */
     position: relative;
-    justify-content: left;
+    justify-content: center;
     height: auto;  /* Mantiene la relación de aspecto original */
     object-fit: cover; /* La imagen cubre todo el espacio del contenedor sin deformarse */
     border-radius: 2px;
-    
+    margin: 0 auto;
 }
 
 }
@@ -682,7 +694,7 @@ div.foto2 img {
     }
 
     img.close-up {
-        padding-bottom: 2.3em;
+        padding-bottom: 0em;
     }
 
     div.foto {
